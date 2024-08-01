@@ -1,0 +1,18 @@
+ 
+{% extends 'usuarios/base.html' %}
+{% block conteudo %}
+<div class="container">
+    <h2>Preencha o formulário para cadastrar</h2>
+    <form action="{% url 'listagem_usuarios' %}" method="post">
+        {% csrf_token %}
+        <span>Nome:</span>
+        <input type="text" class="form-control" name="nome">
+
+        <span>Idade:</span>
+        <input type="number" class="form-control" name="idade">
+        <br>
+        <button class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
+
+{% endblock %}
