@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404, redirect
 def home(request):
     return render(request, 'usuarios/home.html')
 
-def usuarios(request):
+def create_usuario(request):
     novo_usuario = Usuario()
     novo_usuario.name_usuario = request.POST.get('nome')
     novo_usuario.age_usuario = request.POST.get('idade')
@@ -28,4 +28,9 @@ def delete_usuario(request):
         'usuarios': Usuario.objects.all()
     }
     return render(request, 'usuarios/usuarios.html', usuarios)
+
+def update_usuario(request):
+    id = request.POST.get('id')
+
+
 

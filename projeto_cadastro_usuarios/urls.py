@@ -6,6 +6,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #rota, view responsavel, nome de referencia (html)
     path('', views.home, name='home'),
-    path('usuarios/', views.usuarios, name='listagem_usuarios'),
+    path('usuarios/', views.create_usuario, name='listagem_usuarios'),
     path('deletar', views.delete_usuario, name='deletar')
 ]
