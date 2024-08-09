@@ -69,7 +69,7 @@ def delete_user(request):
 
 @csrf_exempt
 def update_user(request):
-    if not request.method == 'PATCH':
+    if not request.method == 'PUT':
         return JsonResponse({'message': 'Http Method incorrected'})
 
     try:
@@ -80,6 +80,12 @@ def update_user(request):
 
         if not response_user:
             return JsonResponse({'message': 'User does not exist'}, status=404)
+        
+        response_user.name_usuario = body.get('name')
+        response_user.age_usuario = body.get('age')
+        response_user.save()
+
+        return JsonResponse({'message': 'User has been updated.'})
 
     except Http404:
             return JsonResponse({'message': 'User does not exist'}, status=404)
